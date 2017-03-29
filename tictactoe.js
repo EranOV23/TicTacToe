@@ -6,14 +6,13 @@ function TicTacToe() {
     var BOARD_SIZE = 3;
 
     this.start = function () {
-        for (var i = 0; i < BOARD_SIZE; i++) {
+        for (var i=0; i<BOARD_SIZE; i++) {
             var rowArr = new Array(BOARD_SIZE);
             rowArr.fill(0);
-
             board.push(rowArr);
         }
 
-        for(i=0; i<BOARD_SIZE; i++){
+        for(var i=0; i<BOARD_SIZE; i++){
 			createRow(i)
 		}
     }
@@ -24,7 +23,7 @@ function TicTacToe() {
 		$row.setAttribute("class", "row");
 		$board.appendChild($row);
 
-		for(j=0; j<BOARD_SIZE; j++){
+		for(var j=0; j<BOARD_SIZE; j++){
 			createCell(j, $row, i);
 		}
     }
@@ -35,7 +34,7 @@ function TicTacToe() {
 		$cell.setAttribute("class", "cell");
 
    		$cell.onclick = function(){
-			ticTacToe.play($cell.id[1] ,$cell.id[2]); 			
+			ticTacToe.play(i ,j); 			
    		}
 
 		$row.appendChild($cell);
@@ -74,14 +73,9 @@ function TicTacToe() {
 		            [{x:2 , y:0},{x:1 , y:1},{x:0 , y:2}],
 		        ];
 
-		        checkWin(wins[0]);
-		        checkWin(wins[1]);
-		        checkWin(wins[2]);
-		        checkWin(wins[3]);
-		        checkWin(wins[4]);
-		        checkWin(wins[5]);
-		        checkWin(wins[6]);
-		        checkWin(wins[7]);
+		        for(var i=0; i<8; i++){
+		        	checkWin(wins[i]);
+		        }
 
 	    	}
 
